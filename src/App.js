@@ -29,55 +29,46 @@ class App extends Component {
                     price: 50,
                     disabled: false,
                 },
-
-                total_price: 125,
             },
+            total_price: 125,
         };
 
-        this.addIngredient = this.addIngredient.bind(this);
-        this.removeIngredient = this.removeIngredient.bind(this);
+        this.addRemoveIngredient = this.addRemoveIngredient.bind(this);
     }
 
-    addIngredient (ingredient) {
+    addRemoveIngredient (ingredient, operation) {
         let part = this.state.myBurger[ingredient];
         const myBurger = {...this.state.myBurger};
+        let total_price = this.state.total_price;
 
-        part.layers.push('layer');
-        part.disabled = false;
-        myBurger[ingredient] = part;
-        myBurger.total_price = myBurger.total_price + part.price;
-
-
-        this.setState(
-            {...this.state,
-            myBurger}
-        );
-        console.log(this.state);
-    }
-
-    removeIngredient (ingredient) {
-        let part = this.state.myBurger[ingredient];
-        const myBurger = {...this.state.myBurger};
-
-        if (part.layers.length > 0) {
-            part.layers.splice(0, 1);
+        if (operation === 'add') {
+            part.layers.push('layer');
             part.disabled = false;
-            if (part.layers.length === 0) part.disabled=true;
             myBurger[ingredient] = part;
-            myBurger.total_price = myBurger.total_price - part.price;
-        }
-        else {
-            part.disabled = true;
-            myBurger[ingredient] = part;
+            total_price = total_price + part.price;
         }
 
+        else {
+            if (part.layers.length > 0) {
+                part.layers.splice(0, 1);
+                part.disabled = false;
+                if (part.layers.length <= 0) part.disabled=true;
+                myBurger[ingredient] = part;
+                total_price = total_price - part.price;
+            }
+            else {
+                part.disabled = true;
+                myBurger[ingredient] = part;
+            }
+        }
         this.setState(
             {...this.state,
-            myBurger}
+            myBurger,
+            total_price,
+            }
         );
         console.log(this.state);
     }
-
 
   render() {
     return (
@@ -85,8 +76,8 @@ class App extends Component {
             <Burger burger={this.state.myBurger}/>
             <Pick
                 burger = {this.state.myBurger}
-                onAddIngredient = {this.addIngredient}
-                onRemoveIngredient = {this.removeIngredient}
+                price = {this.state.total_price}
+                onAddRemoveIngredient = {this.addRemoveIngredient}
             />
         </div>
     )

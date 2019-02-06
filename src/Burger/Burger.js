@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import './Burger.css';
-import Salad from "./Salad/Salad.js";
-import Bacon from "./Bacon/Bacon.js";
-import Cheese from "./Cheese/Cheese.js";
-import Meat from "./Meat/Meat.js";
+import Draw from "./Draw/Draw.js";
 
 
 class Burger extends Component {
@@ -14,10 +11,19 @@ class Burger extends Component {
                     <div className="Seeds1"></div>
                     <div className="Seeds2"></div>
                 </div>
-                <Salad count={this.props.burger.salad}/>
-                <Bacon count={this.props.burger.bacon}/>
-                <Cheese count={this.props.burger.cheese}/>
-                <Meat count={this.props.burger.meat}/>
+
+                {Object.keys(this.props.burger).map(
+                    (key, i) => {
+                        return (
+                            <Draw
+                                key={i}
+                                name={key}
+                                ingr={this.props.burger[key]}
+                            />
+                        );
+                    }
+                )
+                }
                 <div className="BreadBottom"></div>
             </div>
         );
