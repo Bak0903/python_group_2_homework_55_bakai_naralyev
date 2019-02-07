@@ -69,11 +69,17 @@ class App extends Component {
         return total_price;
     }
 
+    isButtonDisabled = (ingredient) => {
+        let propeties = this.state.myBurger[ingredient];
+        return propeties.layers.length === 0;
+    };
+
   render() {
     return (
         <div className={"App"}>
             <Burger burger={this.state.myBurger}/>
             <Pick
+                onDis = {this.isButtonDisabled}
                 burger = {this.state.myBurger}
                 price = {this.state.total_price}
                 onAddRemoveIngredient = {this.addRemoveIngredient}

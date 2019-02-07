@@ -13,6 +13,7 @@ class Pick extends Component {
                     (key, i) => {
                         return (
                             <AddRemoveIngredient
+                                isDisabled={() => {return this.props.onDis(key)}}
                                 key = {i}
                                 name = {key}
                                 ingr = {this.props.burger[key]}
