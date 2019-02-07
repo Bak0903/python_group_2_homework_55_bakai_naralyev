@@ -35,19 +35,14 @@ class App extends Component {
     addRemoveIngredient (ingredient, operation) {
         let part = this.state.myBurger[ingredient];
         const myBurger = {...this.state.myBurger};
-        // let total_price = this.state.total_price;
-
         if (operation === 'add') {
             part.layers.push('layer');
             myBurger[ingredient] = part;
-            // total_price = total_price + part.price;
         }
         else {
             part.layers.splice(0, 1);
             myBurger[ingredient] = part;
-            // total_price = total_price - part.price;
         }
-
         let total_price = this.priceCalculation();
         this.setState(
             {...this.state,

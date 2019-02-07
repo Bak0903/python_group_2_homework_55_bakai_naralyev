@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './Burger.css';
 import Draw from "./Draw/Draw.js";
 
-
 class Burger extends Component {
     render () {
         return (
