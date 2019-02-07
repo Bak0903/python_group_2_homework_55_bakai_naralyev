@@ -88,6 +88,21 @@
     border-radius: 15px;
 }
 
+.Chiken {
+    width: 80%;
+    height: 8%;
+    background: linear-gradient(yellow, orange);
+    margin: 2% auto;
+    border-radius: 15px;
+}
+
+.Pickles {
+    width: 80%;
+    height: 3%;
+    background: linear-gradient(greenyellow, darkgreen);
+    margin: 2% auto;
+}
+
 .Cheese {
     width: 90%;
     height: 4.5%;

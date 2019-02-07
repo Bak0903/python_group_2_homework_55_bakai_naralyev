@@ -25,6 +25,14 @@ class App extends Component {
                     layers: ["layer"],
                     price: 50,
                 },
+                chiken: {
+                    layers: [],
+                    price: 35,
+                },
+                pickles: {
+                    layers: [],
+                    price: 10,
+                },
             },
             total_price: 75,
         };
