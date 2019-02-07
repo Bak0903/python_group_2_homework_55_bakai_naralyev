@@ -1,16 +1,22 @@
 import React, {Component} from 'react';
 
 class AddRemoveIngredient extends Component {
+
+    static isButtonDisabled (ingredient, propeties) {
+        return propeties.layers.length === 0;
+    }
+
     render () {
+
         let ingredientPropeties = this.props.ingr;
         let ingredientName = this.props.name;
         return (
             <div className={"ingredient_change"}>
                <h4 className={"ingredient_name"}>{ingredientName}</h4>
-               <div>
+               <div className={"buttons"}>
                    <button
                        type="submit"
-                       disabled={ingredientPropeties.disabled}
+                       disabled={AddRemoveIngredient.isButtonDisabled(ingredientName, ingredientPropeties)}
                        className={"less"}
                        onClick={() => this.props.onAddRemove(ingredientName, "remove")}
                    >
