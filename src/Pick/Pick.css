@@ -1,0 +1,49 @@
+.Constructor {
+    width: 100%;
+    background: orangered;
+}
+
+.price  {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    display: block;
+}
+
+.ingredient_change {
+    text-align: center;
+    display: block;
+}
+
+.ingredient_name {
+    margin: 20px;
+    text-align: left;
+    display: inline-block;
+    width: 75px;
+    text-transform: capitalize;
+}
+
+.ingredient_name::child {
+    margin-top: 0;
+}
+
+.buttons {
+    display: inline-block;
+    width: 190px;
+}
+
+.less {
+    background: white;
+    font-size: 16px;
+    display: inline-block;
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+.more {
+    background: #bf3813;
+    font-size: 16px;
+    display: inline-block;
+    padding: 0 10px;
+    margin: 0 10px;
+}
